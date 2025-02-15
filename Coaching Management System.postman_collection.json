@@ -1,0 +1,944 @@
+{
+	"info": {
+		"_postman_id": "047e565a-1124-451c-9949-8bcc2501db8a",
+		"name": "Coaching Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33485020"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"safi 2\",\r\n    \"email\":\"safiislam05@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"Student\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"safi\",\r\n    \"email\":\"safiislam04@gmail.com\",\r\n    \"password\":\"123456\",\r\n    \"role\":\"Student\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/user",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-user-role",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"Teacher\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/67aa3762a5fc126c1b1fc582",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"67aa3762a5fc126c1b1fc582"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\":\"Student\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/67a9c387f4a74afdf4359940",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"67a9c387f4a74afdf4359940"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userlogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"safiislam04@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Class",
+			"item": [
+				{
+					"name": "create-class",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"live\",\r\n  \"schedule\": \"67ab71131ea8db83554f00e6\",\r\n  \"courseId\":\"67ab71131ea8db83554f00e5\",\r\n  \"materials\": [\r\n    \"https://example.com/slides\",\r\n    \"https://example.com/handouts\"\r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/class/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"class",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-class",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/class",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"class"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "student-access-class",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/class/student/67ab71131ea8db83554f00e5/67ab0e70db178be95ab79e17",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"class",
+								"student",
+								"67ab71131ea8db83554f00e5",
+								"67ab0e70db178be95ab79e17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "assigenment",
+			"item": [
+				{
+					"name": "create-assignment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Math Homework - Chapter 5\",\r\n  \"description\": \"Complete exercises 5.1 to 5.10 from the textbook.\",\r\n  \"courseId\":\"67ab71131ea8db83554f00e5\",\r\n  \"dueDate\": \"2025-02-20T23:59:59Z\",\r\n  \"maxScore\": 100,\r\n  \"createdBy\": \"64b8e78cd5a4b6a4c0e4d789\",\r\n  \"status\": \"Pending\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/assignment/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"assignment",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-assignment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/assignment",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"assignment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "assignment-status-update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\":\"Submit\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/assignment/67adbfa125156b6c12bfa969",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"assignment",
+								"67adbfa125156b6c12bfa969"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "submission of assignment and exam",
+			"item": [
+				{
+					"name": "exam-and-assignment-submission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"studentId\": \"67ab0e70db178be95ab79e17\",\r\n  \"assignmentId\": \"67adbfa125156b6c12bfa969\",\r\n  \"submissionDate\": \"2025-02-12T14:30:00Z\",\r\n  \"fileUrl\": \"https://example.com/submissions/assignment1.pdf\",\r\n  \"score\": 85,\r\n  \"feedback\": \"Good work! Please review question 3 for better clarity.\",\r\n  \"status\": \"graded\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/submission/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"submission",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-submission",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/submission",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"submission"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "teacher-add-mark",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"score\": 60\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/submission/teacher/67ae1814fd6af87f6e30cccd",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"submission",
+								"teacher",
+								"67ae1814fd6af87f6e30cccd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "A student All-submission",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"score\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/submission/student/67ab0e70db178be95ab79e17",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"submission",
+								"student",
+								"67ab0e70db178be95ab79e17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "create-course",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Advanced Physics\",\r\n  \"description\": \"An in-depth course covering advanced topics in mathematics.\",\r\n  \"schedule\": [\r\n    {\r\n      \"date\": \"2025-03-01T09:00:00Z\",\r\n      \"topic\": \"Calculus I\",\r\n      \"startTime\": \"09:00\",\r\n      \"endTime\": \"10:30\"\r\n    },\r\n    {\r\n      \"date\": \"2025-03-03T09:00:00Z\",\r\n      \"topic\": \"Linear Algebra\",\r\n      \"startTime\": \"09:00\",\r\n      \"endTime\": \"10:30\"\r\n    }\r\n  ],\r\n  \"students\": [],\r\n  \"teacher\": \"67aa3762a5fc126c1b1fc582\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/course/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"course",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-course",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/course",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add-schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-03-01T09:00:00Z\",\r\n    \"topic\": \"Calculus 2\",\r\n    \"startTime\": \"09:00\",\r\n    \"endTime\": \"10:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/course/enroll/67ab71131ea8db83554f00e5",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"course",
+								"enroll",
+								"67ab71131ea8db83554f00e5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete-schedule",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-03-01T09:00:00Z\",\r\n    \"topic\": \"Calculus 2\",\r\n    \"startTime\": \"09:00\",\r\n    \"endTime\": \"10:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/course/schedule/67ab71131ea8db83554f00e5/67ab7500464ca5eec257cca5",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"course",
+								"schedule",
+								"67ab71131ea8db83554f00e5",
+								"67ab7500464ca5eec257cca5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-schedule-for-student",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-03-01T09:00:00Z\",\r\n    \"topic\": \"Calculus 2\",\r\n    \"startTime\": \"09:00\",\r\n    \"endTime\": \"10:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/course/schedule/67ab71131ea8db83554f00e5/67ab0e70db178be95ab79e17",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"course",
+								"schedule",
+								"67ab71131ea8db83554f00e5",
+								"67ab0e70db178be95ab79e17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enroll-course-by-student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-03-01T09:00:00Z\",\r\n    \"topic\": \"Calculus 2\",\r\n    \"startTime\": \"09:00\",\r\n    \"endTime\": \"10:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/course/enroll/67ac6b784f215d80df2f607f/67ab0e70db178be95ab79e17",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"course",
+								"enroll",
+								"67ac6b784f215d80df2f607f",
+								"67ab0e70db178be95ab79e17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "enrolled-course-by-student (access)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"date\": \"2025-03-01T09:00:00Z\",\r\n    \"topic\": \"Calculus 2\",\r\n    \"startTime\": \"09:00\",\r\n    \"endTime\": \"10:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/course/enrolled/67ab0e70db178be95ab79e17",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"course",
+								"enrolled",
+								"67ab0e70db178be95ab79e17"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Homework",
+			"item": [
+				{
+					"name": "create-homework",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Math Assignment 1\",\r\n  \"description\": \"Complete exercises 1 to 10 from Chapter 3.\",\r\n  \"dueDate\": \"2025-02-18T23:59:59.000Z\",\r\n  \"classId\": \"67aab03ab304e26ca078c20b\",\r\n  \"assignedBy\": \"67aa3762a5fc126c1b1fc582\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/homework/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"homework",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-Homework",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/homework",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"homework"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Homework Copy",
+			"item": [
+				{
+					"name": "create-homework",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\": \"67ab0e70db178be95ab79e17\",\r\n    \"amount\": 500,\r\n    \"date\": \"2025-03-02T00:00:00Z\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/studentFees/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"studentFees",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-Homework",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/studentFees",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"studentFees"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Attendance",
+			"item": [
+				{
+					"name": "create-attendance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"date\": \"2025-02-11T00:00:00.000Z\",\r\n  \"classId\": \"67aab03ab304e26ca078c20b\",\r\n  \"attendanceRecords\": [\r\n    {\r\n      \"studentId\": \"67ab0e70db178be95ab79e17\",\r\n      \"status\": \"Present\"\r\n    }\r\n   \r\n  ]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/attendance/create",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"attendance",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-attendance",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/attendance",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"attendance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-all-attendance in a student",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/attendance/67ab0e70db178be95ab79e17",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"attendance",
+								"67ab0e70db178be95ab79e17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-student-attendance",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentId\":\"67ab0e70db178be95ab79e17\",\r\n    \"newStatus\":\"Absent\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local-url}}/attendance/67ab0ed9db178be95ab79e1b",
+							"host": [
+								"{{local-url}}"
+							],
+							"path": [
+								"attendance",
+								"67ab0ed9db178be95ab79e1b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local-url",
+			"value": "http://localhost:5000/api",
+			"type": "string"
+		}
+	]
+}
