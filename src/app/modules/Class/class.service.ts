@@ -21,7 +21,40 @@ const createClassIntoDB = async (payload: TClass) => {
     return result
 }
 const getAllClassFromDB = async () => {
-    const result = await Class.find()
+    const result = await Class.aggregate([
+        {
+            $lookup: {
+                from: 'courses',
+                localField: 'courseId',
+                foreignField: '_id',
+                as: 'course'
+            }
+        },
+        {
+            $unwind: '$course'
+        },
+        {
+            $addFields: {
+                schedule: {
+                    $arrayElemAt: [
+                        {
+                            $filter: {
+                                input: '$course.schedule',
+                                as: 'sched',
+                                cond: { $eq: ['$$sched._id', '$schedule'] },
+                            },
+                        },
+                        0,
+                    ],
+                },
+            },
+        },
+        {
+            $project: {
+                course: 0,
+            },
+        },
+    ])
     return result
 }
 const studentAccessClassFromDB = async (courseId: string, studentId: string) => {

@@ -36,9 +36,20 @@ const statusChangeOfAssignment = catchAsync(async (req: Request, res: Response) 
         data: result,
     });
 })
+const getAllAssignmentByCourseId = catchAsync(async (req: Request, res: Response) => {
+    const { courseId } = req.params
+    const result = await assignmentServices.getAllAssignmentByCourseIdFromDB(courseId)
+    sendResponse(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: `Get All Assignment By CourseId Successfully`,
+        data: result,
+    });
+})
 
 export const assignmentControllers = {
     createAssignment,
     getAllAssignment,
     statusChangeOfAssignment,
+    getAllAssignmentByCourseId
 }

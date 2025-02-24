@@ -1,12 +1,14 @@
 import { Router } from "express";
 import { courseControllers } from "./course.controller";
+import validateRequest from "../../middlewares/validateRequest";
+import { courseValidation } from "./course.validation";
 
 
 
 const router = Router()
 
 
-router.post('/create', courseControllers.createCourse)
+router.post('/create', validateRequest(courseValidation.courseValidationSchema), courseControllers.createCourse)
 router.get('/', courseControllers.getAllCourse)
 router.post('/add-schedule/:courseId', courseControllers.addASchedule)
 router.delete('/schedule/:courseId/:scheduleId', courseControllers.deleteSchedule)

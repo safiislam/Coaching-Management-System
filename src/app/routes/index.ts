@@ -7,6 +7,11 @@ import { courseRoutes } from "../modules/Course/course.route";
 import { assignmentRoutes } from "../modules/Assignment/assignment.route";
 import { submissionRoutes } from "../modules/Submission/submission.route";
 import { studentFeesRoutes } from "../modules/StudentFees/studentFees.route";
+import { examRoutes } from "../modules/Exam/exam.route";
+import { payrollRecordsRoutes } from "../modules/PayrollRecord/payrollRecords.route";
+import { expensesRoutes } from "../modules/Expenses/expenses.route";
+import { leaveRoutes } from "../modules/Leave/leave.route";
+import { eventRoutes } from "../modules/Event/event.route";
 
 
 
@@ -38,12 +43,32 @@ const moduleRoutes = [
         route: assignmentRoutes
     },
     {
+        path: '/exam',
+        route: examRoutes
+    },
+    {
         path: '/submission',
         route: submissionRoutes
     },
     {
         path: '/studentFees',
         route: studentFeesRoutes
+    },
+    {
+        path: '/payrollRecords',
+        route: payrollRecordsRoutes
+    },
+    {
+        path: '/expenses',
+        route: expensesRoutes
+    },
+    {
+        path: '/leave',
+        route: leaveRoutes
+    },
+    {
+        path: '/event',
+        route: eventRoutes
     }
 ]
 

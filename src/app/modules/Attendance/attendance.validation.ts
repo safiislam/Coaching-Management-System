@@ -1,16 +1,15 @@
 import { z } from "zod";
 export const UserRoleEnum = z.enum(['Admin', 'Teacher', 'Student', 'Accountant', 'Staff']);
 
-const userValidationSchema = z.object({
+const attendanceValidationSchema = z.object({
     body: z.object({
-        username: z.string().min(1, 'Username is required'),
-        email: z.string().email('Invalid email address'),
-        password: z.string().min(6, 'Password must be at least 6 characters long'),
-        role: UserRoleEnum,
+        date: z.string({ required_error: 'Date is Require' }).datetime(),
+        classId: z.string({ required_error: "Class Id is Require" }),
+        attendanceRecords: z.array(z.string()).optional()
     })
 })
 
 
-export const userValidations = {
-    userValidationSchema
+export const attendanceValidation = {
+    attendanceValidationSchema
 }

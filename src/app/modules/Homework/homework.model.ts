@@ -9,6 +9,6 @@ const homeworkSchema = new Schema<THomework>({
     dueDate: { type: Date, required: true },
     classId: { type: Schema.Types.ObjectId, ref: 'Class', required: true },
     assignedBy: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-});
+}, { timestamps: true });
 
 export const Homework = model<THomework>('Homework', homeworkSchema); 

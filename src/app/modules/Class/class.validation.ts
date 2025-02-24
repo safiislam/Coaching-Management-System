@@ -1,16 +1,16 @@
 import { z } from "zod";
-export const UserRoleEnum = z.enum(['Admin', 'Teacher', 'Student', 'Accountant', 'Staff']);
 
-const userValidationSchema = z.object({
+
+const classValidationSchema = z.object({
     body: z.object({
-        username: z.string().min(1, 'Username is required'),
-        email: z.string().email('Invalid email address'),
-        password: z.string().min(6, 'Password must be at least 6 characters long'),
-        role: UserRoleEnum,
+        type: z.enum(['live', 'offline']),
+        schedule: z.string({ required_error: 'Schedule is Required' }),
+        materials: z.array(z.string()).optional(),
+        courseId: z.string({ required_error: 'Course id Is Required' })
     })
 })
 
 
-export const userValidations = {
-    userValidationSchema
+export const classValidation = {
+    classValidationSchema
 }

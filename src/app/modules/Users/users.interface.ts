@@ -12,4 +12,5 @@ export type TUsers = {
     email: string;
     password: string;
     role: UserRole;
+    isLeave: "yes" | "no"
 }

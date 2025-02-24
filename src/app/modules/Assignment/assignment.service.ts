@@ -26,7 +26,7 @@ const getAllAssignmentFromDB = async () => {
         {
             path: 'courseId',
             model: 'Course',
-            select: ['-students']
+            select: ['-students', '-schedule']
         }
     ])
     return result
@@ -35,10 +35,24 @@ const statusChangeOfAssignment = async (assignmentId: string, status: string) =>
     const result = await Assignment.findByIdAndUpdate(assignmentId, { $set: { status } })
     return result
 }
+const getAllAssignmentByCourseIdFromDB = async (courseId: string) => {
+    const result = await Assignment.find({ courseId }).populate([
+        {
+            path: 'courseId',
+            model: 'Course',
+            select: ['-students', '-schedule']
+        }
+    ])
+    if (result.length == 0) {
+        throw new AppError(httpStatus.NOT_FOUND, 'Assignment is Not Found')
+    }
+    return result
+}
 
 
 export const assignmentServices = {
     createAssignmentIntoDB,
     getAllAssignmentFromDB,
-    statusChangeOfAssignment
+    statusChangeOfAssignment,
+    getAllAssignmentByCourseIdFromDB
 }

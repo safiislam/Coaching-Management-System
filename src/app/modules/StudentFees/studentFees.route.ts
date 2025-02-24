@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { studentFeesControllers } from "./studentFees.controller";
+import validateRequest from "../../middlewares/validateRequest";
+import { studentFeesValidation } from "./studentFees.validation";
 
 
 
@@ -7,7 +9,7 @@ import { studentFeesControllers } from "./studentFees.controller";
 const router = Router()
 
 
-router.post('/create', studentFeesControllers.createStudentFees)
+router.post('/create', validateRequest(studentFeesValidation.studentFeesValidationSchema), studentFeesControllers.createStudentFees)
 router.get('/', studentFeesControllers.getStudentFees)
 
 

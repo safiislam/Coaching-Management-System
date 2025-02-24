@@ -6,7 +6,8 @@ const userSchema = new Schema<TUsers>({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role: { type: String, enum: UserRole, required: true },
-});
+    isLeave: { type: String, enum: ["yes", 'no'], default: 'no' }
+}, { timestamps: true });
 
 
 userSchema.post('save', function (doc, next) {
